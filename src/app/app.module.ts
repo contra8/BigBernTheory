@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {HttpClientModule} from '@angular/common/http';
 
 import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
@@ -10,6 +11,8 @@ import { SouvenirsComponent } from './souvenirs/souvenirs.component';
 import { FoodComponent } from './food/food.component';
 import { ClubbingComponent } from './clubbing/clubbing.component';
 import { MountainsComponent } from './mountains/mountains.component';
+import { GotthelfComponent } from './gotthelf/gotthelf.component';
+import { MetanavbarComponent } from './metanavbar/metanavbar.component';
 
 const appRoutes: Routes = [
   { path: 'sights', component: SightsComponent },
@@ -17,6 +20,7 @@ const appRoutes: Routes = [
   { path: 'food', component: FoodComponent },
   { path: 'clubbing',      component: ClubbingComponent },
   { path: 'mountains', component: MountainsComponent },
+  { path: 'gotthelf', component: GotthelfComponent },
   { path: '',
     redirectTo: '/',
     pathMatch: 'full'
@@ -33,7 +37,9 @@ const appRoutes: Routes = [
     SouvenirsComponent,
     FoodComponent,
     ClubbingComponent,
-    MountainsComponent
+    MountainsComponent,
+    GotthelfComponent,
+    MetanavbarComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -41,6 +47,7 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     ),
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [],
