@@ -16,7 +16,7 @@ export class RestService {
   }
 
   getProducts(): Observable<any> {
-    return this.http.get(endpoint + 'products').pipe(
+    return this.http.get(endpoint + '/Register').pipe(
       map(this.extractData));
   }
 
@@ -62,9 +62,17 @@ export class RestService {
   }
 }
 
+const endpoint = 'http://hkgb.germ.unibe.ch:8080/exist/rest/db/data';
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'text/xml'
+  })
+};
+/*
 const endpoint = 'http://localhost:3000/api/v1/';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json'
   })
 };
+*/
