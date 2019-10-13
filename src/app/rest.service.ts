@@ -62,7 +62,7 @@ export class RestService {
   }
 }
 
-const endpoint = 'http://oxygen-bot:e9y43aclaink@hkgb.germ.unibe.ch:8080/exist/rest/db';
+const endpoint = 'http://hkgb.germ.unibe.ch:8080/exist/rest/db';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json; charset=utf-8'
