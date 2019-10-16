@@ -16,8 +16,11 @@ export class RestService {
   }
 
   getProducts(): Observable<any> {
-    return this.http.get(endpoint + '/hkgcode/routines/test_json.xql').pipe(
-      map(this.extractData));
+    //return this.http.get(endpoint + '/hkgcode/routines/test_json.xql').pipe(
+    //return this.http.get(endpoint + '/hkgcode/routines/getAllIdsOfG_Korrespondenz.xqm?coll=/db/data/Handschriften/G_Korrespondenz').pipe(
+    return this.http.get(endpoint + '/hkgcode/getXMLDocumentAsJSON.xql').pipe(
+    //return this.http.get(endpoint + '/hkgcode/routines/getAllIdsOfG_Korrespondenz.xqm?coll=/db/data/Handschriften/G_Korrespondenz/Drittbriefe').pipe(
+        map(this.extractData));
   }
 
   getProduct(id): Observable<any> {

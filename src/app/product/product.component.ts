@@ -9,20 +9,26 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ProductComponent implements OnInit {
 
-  products:any = [];
+  //products:any = [];
+  products:any = [{"name":"Albert"}]
 
   constructor(public rest:RestService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    this.getProducts();
+    //this.getProducts();
   }
 
   getProducts() {
+    console.log("product.component.ts.getProducts() meldet");
     this.products = [];
     this.rest.getProducts().subscribe((data: {}) => {
-      console.log(data);
+      //console.log("The JSON: " + data);
       this.products = data;
+      console.log("test");
+      console.log("this.products ================= " + this.products.body);
     });
+    //console.log("this.products = " + this.products[0].name);
+    //this.products.name = "Jeremias";
   }
 
   add() {
