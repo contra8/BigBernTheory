@@ -48,7 +48,7 @@ export class ProductComponent implements OnInit {
     this.rest.getProducts().subscribe((data: {}) => {
       //console.log("The JSON: " + data);
       this.products = data;
-      console.log("test");
+      console.log("Test");
       console.log("this.products ================= " + this.products.body.p.text);
     });
     //console.log("this.products = " + this.products[0].name);
