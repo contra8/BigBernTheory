@@ -1,26 +1,42 @@
 <h2>Das Gotthelf-Universum</h2>
 
-<div>
+<!--div>
   <button (click)="getProducts()">
     Hole 1. Absatz aus "Geld und Geist - Die Versöhnung"
   </button>
-</div>
+</div-->
 
-<script>
+<!--script>
      myObj = [{ "name":"John", "age":30, "car":null }];
-</script> 
+</script-->
 
 <!--div id="output">
   {{myObj.age}}
   {{products[0]['body'][0]['type'][0]['p'][0]['#text']}}>
 </div-->
 
-<ul class="products">
+<!--form style="margin-left: 20px;">
+  <div class="form-group">
+    <label for="name">Nummer des gewünschten Absatzes eingeben:</label>
+    <input type="text" class="form-control" id="index" [(ngModel)]="this.index" required style="width:100px;"-->
+  <!--input type="text" [formControl]="index" style="width:100px;"-->
+  <!--/div>
+</form-->
+
+  <button type="submit" class="btn btn-success" style="color:black;" (click)="getProducts()">Einen Absatz aus "C5G Geld" vom Server holen</button>
+
+
+<!--p>Index: {{index.value}}</p-->
+<ul class="products" style="width:450px; margin-left:40px;">
   <!--li *ngFor="let p of products;"-->
   <li>
     <!--{{p.p.type}}-->
-    {{products.body.p.text}}
+    {{products.body.p[2].text}}
   </li>
+  <!--li *ngFor="let element of array">{{element.age}}</li-->
+  <!--li *ngFor="let pe of products.body.p" | async>
+    {{pe.text}}
+  </li-->
 </ul>
 
 <!--ul class="products">
