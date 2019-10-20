@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { RestService } from '../rest.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { throwIfEmpty } from 'rxjs/operators';
 
 @Component({
   selector: 'app-product',
@@ -10,29 +12,48 @@ import { FormControl } from '@angular/forms';
 })
 export class ProductComponent implements OnInit {
 
-  index = new FormControl('');
+  //index = new FormControl('');
+  pMenuVisible = false;
+  products:any = []
+  pIndexIsChosen = false;
+  pIndex = null;
+  textOfChosenParagraph = "Wert von textOfChosenParagraph";
 
-  //products:any = [];
-  products:any = [{"name":"Albert"}]
-
-  constructor(public rest:RestService, private route: ActivatedRoute, private router: Router) { }
-
-  ngOnInit() {
-    this.getProducts(1);
+  constructor(public rest:RestService, private route: ActivatedRoute, private router: Router) {
   }
 
-  getProducts(index) {
-    console.log("product.component.ts.getProducts() meldet");
-    console.log(this.products);
+  ngOnInit() {
+    //this.getTextFromServer(1);
+  }
+
+  onTextChange(value) {
+    //console.log(value);
+    console.log("onTextChange meldet: " + this.pIndex);
+    this.pIndex = value;
+    //console.log(this.pIndex);
+    if (this.pIndex == 0)
+    {
+      console.log("pIndex ist 0: " + this.pIndex);
+      this.pIndexIsChosen = false;
+    }
+    else {
+      console.log("pIndex ist nicht 0: " + this.pIndex);
+      this.pIndexIsChosen = true;
+      this.textOfChosenParagraph = this.products.body.p[this.pIndex - 1].text;
+    }
+    console.log("pIndexIsChosen = " + this.pIndexIsChosen);
+  }
+
+  getTextFromServer(index) {
+    this.pMenuVisible = this.pIndexIsChosen = false;
+    this.pIndex = null;
     this.products = [];
     this.rest.getProducts(index).subscribe((data: {}) => {
-      //console.log("The JSON: " + data);
       this.products = data;
-      console.log("Test");
-      console.log("this.products ================= " + this.products.body.p.text);
+      console.log("this.products ================= " + this.products.body.p[0].text);
+      this.pMenuVisible = true;
+      console.log(this.pMenuVisible);
     });
-    //console.log("this.products = " + this.products[0].name);
-    //this.products.name = "Jeremias";
   }
 
   add() {
@@ -42,7 +63,7 @@ export class ProductComponent implements OnInit {
   delete(id) {
     this.rest.deleteProduct(id)
       .subscribe(res => {
-          this.getProducts(1);
+          this.getTextFromServer(1);
         }, (err) => {
           console.log(err);
         }

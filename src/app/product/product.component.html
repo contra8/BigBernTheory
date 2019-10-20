@@ -1,59 +1,30 @@
 <div  style="margin: 20px; max-width: 1024px;">
   <h2>Das Gotthelf-Universum</h2>
 
-<!--div>
-  <button (click)="getProducts()">
-    Hole 1. Absatz aus "Geld und Geist - Die Versöhnung"
-  </button>
-</div-->
+  <div class="content-box">
 
-<!--script>
-     myObj = [{ "name":"John", "age":30, "car":null }];
-</script-->
+    <button type="submit" class="btn btn-success" style="color:black; margin-top:20px; margin-bottom:30px;" (click)="getTextFromServer(1)">Hole Text C5G_Geld_3 aus eXist-DB</button>
 
-<!--div id="output">
-  {{myObj.age}}
-  {{products[0]['body'][0]['type'][0]['p'][0]['#text']}}>
-</div-->
+    <ul *ngIf="!pIndexIsChosen" class="products">
+      <!--b>Gesamttext</b-->
+      <li *ngFor="let p of products.body.p;">
+        {{p.text}}
+      </li>
+    </ul>
+    <ul *ngIf="pIndexIsChosen" class="products" id="chosenParagraph">
+      <li>
+        <b>Absatz {{pIndex}}</b><br />{{textOfChosenParagraph}} 
+      </li>
+    </ul>
 
-<!--form style="margin-left: 20px;">
-  <div class="form-group">
-    <label for="name">Nummer des gewünschten Absatzes eingeben:</label>
-    <input type="text" class="form-control" id="index" [(ngModel)]="this.index" required style="width:100px;"-->
-  <!--input type="text" [formControl]="index" style="width:100px;"-->
-  <!--/div>
-</form-->
+  </div>
 
-  <form>
-    <label for="name">Bitte Nummer des gewünschten Absatzes eingeben (Zahl zwischen 1 und 20):&nbsp;</label>
-    <input type="text" [(ngModel)]="name" style="float: right;" />
-  </form>
-
-  <!--div style="margin-right: 0px;"-->
-    <button type="submit" class="btn btn-success" style="color:black; float: right; margin-top: 50px; margin-bottom: 50px;" (click)="getProducts(1)">Absatz aus eXist-db holen und anzeigen</button>
-  <!--/div-->
-  <!--p>Index: {{index.value}}</p-->
-  <p>Der gewünschte Absatz:</p>
-  <ul class="products" style="width:450px;">
-    <!--li *ngFor="let p of products;"-->
-    <li>
-      <!--{{p.p.type}}-->
-      {{products.body.p.text}}
-    </li>
-    <!--li *ngFor="let element of array">{{element.age}}</li-->
-    <!--li *ngFor="let pe of products.body.p" | async>
-      {{pe.text}}
-    </li-->
-  </ul>
-
-  <!--ul class="products">
-    <li *ngFor="let p of products; let i=index;">
-      <a routerLink="/product-details/{{p._id}}">
-        <span class="badge">{{i+1}}</span> {{p}}
-      </a>
-      <button class="delete" title="delete product"
-        (click)="delete(p._id)">x</button>
-    </li>
-  </ul-->
+  <div class="content-box select-p" [ngClass]="{ 'show': pMenuVisible }">
+    <form>
+      <label for="name">Zeige nur folgenden Absatz<br />(Zahl zwischen 1 und 114 eingeben):&nbsp;</label>
+      <input type="text" [(ngModel)]="pIndex" name="pIndex" (ngModelChange)="onTextChange($event)" />
+    </form>
+    <!--p>{{pIndex}}</p-->
+  </div>
 
 </div>  
