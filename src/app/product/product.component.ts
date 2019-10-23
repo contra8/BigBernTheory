@@ -15,6 +15,7 @@ export class ProductComponent implements OnInit {
   //index = new FormControl('');
   pMenuVisible = false;
   products:any = []
+  contentReceived = false;
   pIndexIsChosen = false;
   pIndex = null;
   textOfChosenParagraph = "Wert von textOfChosenParagraph";
@@ -46,6 +47,7 @@ export class ProductComponent implements OnInit {
 
   getTextFromServer(index) {
     this.pMenuVisible = this.pIndexIsChosen = false;
+    this.contentReceived = true;
     this.pIndex = null;
     this.products = [];
     this.rest.getProducts(index).subscribe((data: {}) => {
