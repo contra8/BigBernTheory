@@ -21,7 +21,7 @@ export class RestService {
     //return this.http.get(endpoint + '/hkgcode/routines/getAllIdsOfG_Korrespondenz.xqm?coll=/db/data/Handschriften/G_Korrespondenz/Drittbriefe').pipe(
     console.log("index = " + index);
     // Call http://hkgb.germ.unibe.ch:8080/exist/rest/db/hkgcode/getXMLDocumentAsJSON.xql?pindex=20
-    return this.http.get(endpoint + '/hkgcode/getXMLDocumentAsJSON.xql?pindex=' + index).pipe(
+    return this.http.get(endpoint + '/hkgcode/getXMLDocumentAsJSON.xqy?pindex=' + index).pipe(
         map(this.extractData));
   }
 
