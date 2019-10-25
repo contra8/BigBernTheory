@@ -3,7 +3,8 @@
 
   <div class="content-box">
 
-    <button type="submit" class="btn btn-success" style="color:black; margin-top:20px; margin-bottom:30px;" (click)="getTextFromServer(1)">Hole Text C5G_Geld_3 aus eXist-DB</button>
+    <!--button type="submit" class="btn btn-success" style="color:black; margin-top:20px; margin-bottom:30px;" (click)="getTextFromServer(1)">Hole Text C5G_Geld_3 aus eXist-DB</button-->
+    <button type="submit" class="btn btn-success" style="color:black; margin-top:20px; margin-bottom:30px;" (click)="getTextFromServer(1)">Hole Text "Der Geldstag" aus eXist-DB (hkg-b)</button>
     <ul *ngIf="!pIndexIsChosen && contentReceived" class="products">
       <!--b>Gesamttext</b-->
       <li *ngFor="let p of products.body.p;">
