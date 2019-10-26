@@ -15,7 +15,7 @@ export class RestService {
     return body || { };
   }
 
-  getProducts(index): Observable<any> {
+  getDocument(index): Observable<any> {
     //return this.http.get(endpoint + '/hkgcode/routines/test_json.xql').pipe(
     //return this.http.get(endpoint + '/hkgcode/routines/getAllIdsOfG_Korrespondenz.xqm?coll=/db/data/Handschriften/G_Korrespondenz').pipe(
     //return this.http.get(endpoint + '/hkgcode/routines/getAllIdsOfG_Korrespondenz.xqm?coll=/db/data/Handschriften/G_Korrespondenz/Drittbriefe').pipe(

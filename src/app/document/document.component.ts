@@ -6,11 +6,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { throwIfEmpty } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-product',
-  templateUrl: './product.component.html',
-  styleUrls: ['./product.component.scss']
+  selector: 'app-document',
+  templateUrl: './document.component.html',
+  styleUrls: ['./document.component.scss']
 })
-export class ProductComponent implements OnInit {
+export class DocumentComponent implements OnInit {
 
   //index = new FormControl('');
   pMenuVisible = false;
@@ -24,7 +24,7 @@ export class ProductComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this.getTextFromServer(1);
+    //this.getDocumentFromServer(1);
   }
 
   onTextChange(value) {
@@ -45,12 +45,12 @@ export class ProductComponent implements OnInit {
     console.log("pIndexIsChosen = " + this.pIndexIsChosen);
   }
 
-  getTextFromServer(index) {
+  getDocumentFromServer(index) {
     this.pMenuVisible = this.pIndexIsChosen = false;
     this.contentReceived = true;
     this.pIndex = null;
     this.products = [];
-    this.rest.getProducts(index).subscribe((data: {}) => {
+    this.rest.getDocument(index).subscribe((data: {}) => {
       this.products = data;
       console.log("this.products ================= " + this.products.body.p[0].text);
       this.pMenuVisible = true;
@@ -65,7 +65,7 @@ export class ProductComponent implements OnInit {
   delete(id) {
     this.rest.deleteProduct(id)
       .subscribe(res => {
-          this.getTextFromServer(1);
+          this.getDocumentFromServer(1);
         }, (err) => {
           console.log(err);
         }
