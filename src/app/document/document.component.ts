@@ -14,13 +14,13 @@ export class DocumentComponent implements OnInit {
 
   //index = new FormControl('');
   pMenuVisible = false;
-  products:any = []
+  paragraphs:any = []
   contentReceived = false;
   pIndexIsChosen = false;
   pIndex = null;
   textOfChosenParagraph = "Wert von textOfChosenParagraph";
 
-  constructor(public rest:RestService, private route: ActivatedRoute, private router: Router) {
+  constructor(public rest: RestService, private route: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit() {
@@ -40,24 +40,24 @@ export class DocumentComponent implements OnInit {
     else {
       console.log("pIndex ist nicht 0: " + this.pIndex);
       this.pIndexIsChosen = true;
-      this.textOfChosenParagraph = this.products.body.p[this.pIndex - 1].text;
+      this.textOfChosenParagraph = this.paragraphs.body.p[this.pIndex - 1].text;
     }
     console.log("pIndexIsChosen = " + this.pIndexIsChosen);
   }
 
   getDocumentFromServer(index) {
-    this.pMenuVisible = this.pIndexIsChosen = false;
-    this.contentReceived = true;
+    this.pMenuVisible = this.pIndexIsChosen = this.contentReceived = false;
     this.pIndex = null;
-    this.products = [];
+    this.paragraphs = [];
     this.rest.getDocument(index).subscribe((data: {}) => {
-      this.products = data;
-      console.log("this.products ================= " + this.products.body.p[0].text);
+      this.paragraphs = data;
+      console.log("this.paragraphs ================= " + this.paragraphs.body.p[0].text);
       this.pMenuVisible = true;
       console.log(this.pMenuVisible);
+      this.contentReceived = true;
     });
   }
-
+/*
   add() {
     this.router.navigate(['/product-add']);
   }
@@ -71,4 +71,5 @@ export class DocumentComponent implements OnInit {
         }
       );
   }
+*/
 }

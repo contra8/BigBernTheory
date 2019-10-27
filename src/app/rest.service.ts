@@ -25,6 +25,7 @@ export class RestService {
     return this.http.get(endpoint + '/hkgcode/getXMLDocumentAsJSON.xqy?pindex=' + index).pipe(map(this.extractData));
   }
 
+  /*
   getProduct(id): Observable<any> {
     return this.http.get(endpoint + 'products/' + id).pipe(
       map(this.extractData));
@@ -51,7 +52,7 @@ export class RestService {
       catchError(this.handleError<any>('deleteProduct'))
     );
   }
-
+*/
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
   
