@@ -51,25 +51,10 @@ export class DocumentComponent implements OnInit {
     this.paragraphs = [];
     this.rest.getDocument(index).subscribe((data: {}) => {
       this.paragraphs = data;
-      console.log("this.paragraphs ================= " + this.paragraphs.body.p[0].text);
+      console.log("First paragraph: " + this.paragraphs.body.p[0].text);
       this.pMenuVisible = true;
       console.log(this.pMenuVisible);
       this.contentReceived = true;
     });
   }
-/*
-  add() {
-    this.router.navigate(['/product-add']);
-  }
-
-  delete(id) {
-    this.rest.deleteProduct(id)
-      .subscribe(res => {
-          this.getDocumentFromServer(1);
-        }, (err) => {
-          console.log(err);
-        }
-      );
-  }
-*/
 }
