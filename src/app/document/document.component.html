@@ -4,9 +4,27 @@
   <div class="content-box">
 
     <!--button type="submit" class="btn btn-success" style="color:black; margin-top:20px; margin-bottom:30px;" (click)="getTextFromServer(1)">Hole Text C5G_Geld_3 aus eXist-DB</button-->
-    <button type="submit" class="btn btn-success" style="color:black; margin-top:20px; margin-bottom:30px;" (click)="getDocumentFromServer(1)">Hole Text "Der Geldstag" aus eXist-DB (hkg-b)</button>
-    <ul *ngIf="!pIndexIsChosen && contentReceived" class="paragraphs">
-      <!--b>Gesamttext</b-->
+    <button type="submit" class="btn btn-success" style="color:black; margin-top:20px; margin-bottom:30px;" (click)="getDocumentParagraphsFromServer(1)">Hole Text "C2G Geld und Geist 1" aus eXist-DB (nur p-tags, hkg-b)</button>
+    <button type="submit" class="btn btn-success" style="color:black; margin-top:20px; margin-bottom:30px;" (click)="getDocumentFromServer(1)">Hole Text "C2G Geld und Geist 1" aus eXist-DB (hkg-b)</button>
+
+    <p>Herausgeber: {{firstName}}</p>
+    <p *ngFor="let p of data.TEI.text.body.div.p; let i = index;">
+      ---|<u><b>{{i+1}}</b></u>|---<br />
+      <ng-container *ngIf="p.app; else noApp">
+        <ng-container *ngFor="let app of p.app; let j = index;">
+          <span>
+            {{p['#text'][j]}} | <i>{{app.lem}}</i> | 
+          </span>
+        </ng-container>
+        <span>
+          {{p['#text'][p['#text'].length - 1]}}
+        </span>
+      </ng-container>
+      <ng-template #noApp>
+        <span><b>TEXT OHNE APPARAT</b><br />{{p['#text']}}</span>
+      </ng-template>
+    </p>
+    <!--ul *ngIf="!pIndexIsChosen && contentReceived" class="paragraphs">
       <li *ngFor="let p of paragraphs.body.p;">
         {{p.text}}
       </li>
@@ -16,7 +34,7 @@
         <b>Absatz {{pIndex}}</b><br />{{textOfChosenParagraph}} 
       </li>
     </ul>
-  </div>
+  </div-->
 
   <div class="content-box select-p" [ngClass]="{ 'show': pMenuVisible }">
     <form>
