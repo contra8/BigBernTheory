@@ -54,7 +54,9 @@ export class DocumentComponent implements OnInit {
     this.pMenuVisible = this.pIndexIsChosen = this.contentReceived = false;
     this.pIndex = null;
     this.data = [];
+    console.log("Data will be processed ...");
     this.rest.getDocument(index).subscribe((data: {}) => {
+      console.log("In Klammer meldet");
       this.data = data;
       this.firstName = this.data.TEI.teiHeader.fileDesc.editionStmt.respStmt[1].name;
       console.log("getDocumentFromServer meldet 1: " + this.firstName);

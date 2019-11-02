@@ -9,20 +9,32 @@
 
     <p>Herausgeber: {{firstName}}</p>
     <p *ngFor="let p of data.TEI.text.body.div.p; let i = index;">
-      ---|<u><b>{{i+1}}</b></u>|---<br />
-      <ng-container *ngIf="p.app; else noApp">
+      |<u><b>P{{i+1}}</b> {{p['xml:id']}}</u>|<br />
+      
+      <ng-container *ngIf="p.app; else noApp">
+        <!--ng-container *ngFor="let app of p.app; let j = index;">
+          {{p['#text'][j]}} <span class="lem">{{app.lem}}</span>
+        </ng-container-->
+      </ng-container>
+      <!--span>
+        {{p['#text'][p['#text'].length - 1]}}
+      </span-->
+      
+      <!--ng-container *ngIf="p.app; else noApp">
         <ng-container *ngFor="let app of p.app; let j = index;">
-          <span>
-            {{p['#text'][j]}} | <i>{{app.lem}}</i> | 
+          <span class="test">
+            {{p['#text'][j]}} <span class="lem">{{app.lem}}</span>
           </span>
         </ng-container>
         <span>
           {{p['#text'][p['#text'].length - 1]}}
         </span>
-      </ng-container>
+      </ng-container-->
+      
       <ng-template #noApp>
-        <span><b>TEXT OHNE APPARAT</b><br />{{p['#text']}}</span>
+        <span class="no-app">{{p['#text']}}</span>
       </ng-template>
+    
     </p>
     <!--ul *ngIf="!pIndexIsChosen && contentReceived" class="paragraphs">
       <li *ngFor="let p of paragraphs.body.p;">
