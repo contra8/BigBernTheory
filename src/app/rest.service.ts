@@ -72,7 +72,7 @@ export class RestService {
   }
 }
 
-const endpoint = 'http://hkgb.germ.unibe.ch:8080/exist/rest/db';
+const endpoint = 'https://hkgb.germ.unibe.ch:8443/exist/rest/db';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json; charset=utf-8'
