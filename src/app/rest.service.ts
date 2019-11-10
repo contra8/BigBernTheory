@@ -16,7 +16,7 @@ export class RestService {
   }
 
   getDocument(index): Observable<any> {
-    return this.http.get(endpoint + '/hkgcode/getXMLDocumentAsJSON.xqy?document=Drucktexte/C2G_Geld_1.xml' + index).pipe(map(this.extractData));
+    return this.http.get(endpoint + '/hkgcode/getXMLDocumentAsJSON.xqy?document=Drucktexte/C2G_Geld_1.xml').pipe(map(this.extractData));
   }
 
   getDocumentParagraphs(index): Observable<any> {

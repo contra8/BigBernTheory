@@ -21,7 +21,7 @@ export class DocumentComponent implements OnInit {
   pIndexIsChosen = false;
   pIndex = null;
   textOfChosenParagraph = "Wert von textOfChosenParagraph";
-  firstName = "Der Herausgeber";
+  firstName = "";
   leText = "Initialer Text";
 
   constructor(public rest: RestService, private route: ActivatedRoute, private router: Router) {
