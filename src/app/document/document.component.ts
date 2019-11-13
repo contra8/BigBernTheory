@@ -56,8 +56,11 @@ export class DocumentComponent implements OnInit {
     this.data = [];
     console.log("Data will be processed ...");
     this.rest.getDocument(index).subscribe((data: {}) => {
-      console.log("In Klammer meldet");
+      console.log("getDocumentFromServer meldet");
       this.data = data;
+      console.log("data[1] = " + data[32]);
+
+      /* Oldschool JSON, direct serialization from eXist-db
       this.firstName = this.data.TEI.teiHeader.fileDesc.editionStmt.respStmt[1].name;
       console.log("getDocumentFromServer meldet 1: " + this.firstName);
       this.firstName = this.data.TEI.text.body.div.p[0]['xml:id'];
@@ -69,6 +72,7 @@ export class DocumentComponent implements OnInit {
       console.log("getDocumentFromServer meldet 5: " + this.firstName);
       this.firstName = this.data.TEI.teiHeader.fileDesc.editionStmt.respStmt[1].name;
       console.log("getDocumentFromServer meldet 6: " + this.firstName);
+      */
       //this.pMenuVisible = true;
       console.log(this.pMenuVisible);
       //this.contentReceived = true;
