@@ -16,7 +16,7 @@ export class RestService {
   }
 
   getDocument(index): Observable<any> {
-    return this.http.get(endpoint + '/hkgcode/getXMLDocumentAsJSON.xqy?document=Drucktexte/C2G_Geld_1.xml').pipe(map(this.extractData));
+    return this.http.get(endpoint + '/hkgcode/getXMLDocumentAsJSON.xqy').pipe(map(this.extractData));
   }
 
   getDocumentParagraphs(index): Observable<any> {
@@ -72,7 +72,7 @@ export class RestService {
   }
 }
 
-const endpoint = 'https://hkgb.germ.unibe.ch:8443/exist/rest/db';
+const endpoint = 'http://hkgb.germ.unibe.ch:8080/exist/rest/db';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json; charset=utf-8'
