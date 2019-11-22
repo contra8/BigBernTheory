@@ -58,7 +58,8 @@ export class DocumentComponent implements OnInit {
     this.rest.getDocument(index).subscribe((data: {}) => {
       console.log("getDocumentFromServer meldet");
       this.data = data;
-      console.log("data[1] = " + data[32]);
+      console.log("data = " + data[3][1][1]);
+      console.log("data = " + data[3][1][1][1]['xml:id']);
 
       /* Oldschool JSON, direct serialization from eXist-db
       this.firstName = this.data.TEI.teiHeader.fileDesc.editionStmt.respStmt[1].name;
