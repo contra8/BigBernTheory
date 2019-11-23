@@ -15,8 +15,16 @@ import { MountainsComponent } from './mountains/mountains.component';
 import { GotthelfComponent } from './gotthelf/gotthelf.component';
 import { MetanavbarComponent } from './metanavbar/metanavbar.component';
 import { DocumentComponent } from './document/document.component';
+import { AktuellesComponent } from './aktuelles/aktuelles.component';
+import { EditionComponent } from './edition/edition.component';
+import { ProjektComponent } from './projekt/projekt.component';
+import { SucheComponent } from './suche/suche.component';
 
 const appRoutes: Routes = [
+  { path: 'aktuelles', component: AktuellesComponent },
+  { path: 'edition', component: EditionComponent },
+  { path: 'projekt', component: ProjektComponent },
+  { path: 'suche', component: SucheComponent },
   { path: 'sights', component: SightsComponent },
   { path: 'souvenirs',      component: SouvenirsComponent },
   { path: 'food', component: FoodComponent },
@@ -29,7 +37,7 @@ const appRoutes: Routes = [
     data: { title: 'Gotthelf-Edition: 1 Dokument' }
   },
   { path: '',
-    redirectTo: '/document',
+    redirectTo: '/edition',
     pathMatch: 'full'
   }
   /*,
@@ -47,7 +55,11 @@ const appRoutes: Routes = [
     MountainsComponent,
     GotthelfComponent,
     MetanavbarComponent,
-    DocumentComponent
+    DocumentComponent,
+    AktuellesComponent,
+    EditionComponent,
+    ProjektComponent,
+    SucheComponent
   ],
   imports: [
     RouterModule.forRoot(
