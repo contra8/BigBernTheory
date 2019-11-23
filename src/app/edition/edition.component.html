@@ -9,9 +9,13 @@
 
     <!--p>Herausgeber: <u>{{firstName}}</u></p-->
 
+    <!--iframe src="https://bl.ocks.org/vasturiano/raw/02affe306ce445e423f992faeea13521/"></iframe-->
+
     <ng-container *ngIf="data.collection">
       <p *ngFor="let work of data.collection[1].document">
-        <a href="{{work['#text']}}" target="_blank">{{work.title}}</a>
+        <ng-container *ngIf="work.title.length;">
+          <a href="{{work['#text']}}" target="_blank">{{work.title}}</a>
+        </ng-container>
       </p>
     </ng-container>
 
@@ -59,4 +63,4 @@
     <!--p>{{pIndex}}</p-->
   </div>
 
-</div>  
+</div>

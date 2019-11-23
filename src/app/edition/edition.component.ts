@@ -52,8 +52,8 @@ export class EditionComponent implements OnInit {
     this.rest.getTitlesAndUrlsOfAllDocuments().subscribe((data: {}) => {
       //console.log("data = " + data[3][1][1]);
       this.data = data;
-      console.log("Erstes Werk:");
-      console.log(this.data.collection[1].document[0]);
+      //console.log("Zweites Werk:");
+      //console.log(this.data.collection[1].document[1]);
     });
   }
 

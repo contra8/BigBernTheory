@@ -11,6 +11,7 @@
   },
   "private": true,
   "dependencies": {
+    "3d-force-graph": "^1.56.4",
     "@angular/animations": "~7.2.0",
     "@angular/common": "~7.2.0",
     "@angular/compiler": "~7.2.0",
@@ -19,9 +20,12 @@
     "@angular/platform-browser": "~7.2.0",
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
+    "@types/offscreencanvas": "^2019.6.0",
+    "@types/three": "^0.103.2",
     "bootstrap": "^4.3.1",
     "core-js": "^2.5.4",
     "rxjs": "~6.3.3",
+    "three": "^0.110.0",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"
   },
