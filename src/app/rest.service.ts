@@ -15,8 +15,12 @@ export class RestService {
     return body || { };
   }
 
+  getTitlesAndUrlsOfAllDocuments(): Observable<any> {
+    return this.http.get(endpoint + '/hkgcode/routines/getters/getTitlesAndUrlsOfAllXmlFiles.xqy').pipe(map(this.extractData));
+  }
+
   getDocument(index): Observable<any> {
-    return this.http.get(endpoint + '/hkgcode/getXMLDocumentAsJSON.xqy').pipe(map(this.extractData));
+    return this.http.get(endpoint + '/hkgcode/routines/getters/getXMLDocumentAsJSON.xqy').pipe(map(this.extractData));
   }
 
   getDocumentParagraphs(index): Observable<any> {
@@ -26,7 +30,7 @@ export class RestService {
 
     console.log("index = " + index);
     // Call http://hkgb.germ.unibe.ch:8080/exist/rest/db/hkgcode/getXMLDocumentAsJSON.xql?pindex=20
-    return this.http.get(endpoint + '/hkgcode/getXMLDocumentParagraphsAsJSON.xqy?pindex=' + index).pipe(map(this.extractData));
+    return this.http.get(endpoint + '/hkgcode/routines/getters/getXMLDocumentParagraphsAsJSON.xqy?pindex=' + index).pipe(map(this.extractData));
   }
 
   /*

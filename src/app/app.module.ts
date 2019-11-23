@@ -19,6 +19,7 @@ import { AktuellesComponent } from './aktuelles/aktuelles.component';
 import { EditionComponent } from './edition/edition.component';
 import { ProjektComponent } from './projekt/projekt.component';
 import { SucheComponent } from './suche/suche.component';
+import { HomeComponent } from './home/home.component';
 
 const appRoutes: Routes = [
   { path: 'aktuelles', component: AktuellesComponent },
@@ -26,18 +27,19 @@ const appRoutes: Routes = [
   { path: 'projekt', component: ProjektComponent },
   { path: 'suche', component: SucheComponent },
   { path: 'sights', component: SightsComponent },
-  { path: 'souvenirs',      component: SouvenirsComponent },
+  { path: 'souvenirs', component: SouvenirsComponent },
   { path: 'food', component: FoodComponent },
-  { path: 'clubbing',      component: ClubbingComponent },
+  { path: 'clubbing', component: ClubbingComponent },
   { path: 'mountains', component: MountainsComponent },
   { path: 'gotthelf', component: GotthelfComponent },
+  { path: 'home', component: HomeComponent },
   {
     path: 'document',
     component: DocumentComponent,
     data: { title: 'Gotthelf-Edition: 1 Dokument' }
   },
   { path: '',
-    redirectTo: '/edition',
+    redirectTo: '/home',
     pathMatch: 'full'
   }
   /*,
@@ -59,7 +61,8 @@ const appRoutes: Routes = [
     AktuellesComponent,
     EditionComponent,
     ProjektComponent,
-    SucheComponent
+    SucheComponent,
+    HomeComponent
   ],
   imports: [
     RouterModule.forRoot(

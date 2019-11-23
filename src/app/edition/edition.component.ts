@@ -26,6 +26,7 @@ export class EditionComponent implements OnInit {
 
   ngOnInit() {
     //this.getDocumentFromServer(1);
+    this.getTitlesAndUrlsOfAllDocuments();
   }
 
   onTextChange(value) {
@@ -44,6 +45,16 @@ export class EditionComponent implements OnInit {
       this.textOfChosenParagraph = this.paragraphs.body.p[this.pIndex - 1].text;
     }
     console.log("pIndexIsChosen = " + this.pIndexIsChosen);
+  }
+
+  getTitlesAndUrlsOfAllDocuments() {
+    console.log("Klasse edition.component.ts, Methode getNamesofAllDocuments meldet");
+    this.rest.getTitlesAndUrlsOfAllDocuments().subscribe((data: {}) => {
+      //console.log("data = " + data[3][1][1]);
+      this.data = data;
+      console.log("Erstes Werk:");
+      console.log(this.data.collection[1].document[0]);
+    });
   }
 
   getDocumentFromServer(index) {

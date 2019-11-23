@@ -1,13 +1,20 @@
 <div  style="margin: 20px; max-width: 600px; margin-left: 200px; margin-right:200px;">
-  <h2>Das Gotthelf-Universum</h2>
+  <h2>Alle Gotthelf-Druckwerke</h2>
 
   <div class="content-box">
 
     <!--button type="submit" class="btn btn-success" style="color:black; margin-top:20px; margin-bottom:30px;" (click)="getTextFromServer(1)">Hole Text C5G_Geld_3 aus eXist-DB</button-->
     <!--button type="submit" class="btn btn-success" style="color:black; margin-top:20px; margin-bottom:30px;" (click)="getDocumentParagraphsFromServer(1)">Hole Text "C2G Geld und Geist 1" aus eXist-DB (nur p-tags, hkg-b)</button-->
-    <button type="submit" class="btn btn-success" style="color:black; margin-top:20px; margin-bottom:30px;" (click)="getDocumentFromServer(1)">getXMLDocumentAsJSON (hkg-b)</button>
+    <!--button type="submit" class="btn btn-success" style="color:black; margin-top:20px; margin-bottom:30px;" (click)="getDocumentFromServer(1)">getXMLDocumentAsJSON (hkg-b)</button-->
 
-    <p>Herausgeber: <u>{{firstName}}</u></p>
+    <!--p>Herausgeber: <u>{{firstName}}</u></p-->
+
+    <ng-container *ngIf="data.collection">
+      <p *ngFor="let work of data.collection[1].document">
+        <a href="{{work['#text']}}" target="_blank">{{work.title}}</a>
+      </p>
+    </ng-container>
+
     <ng-container *ngIf="data.TEI">
       <p *ngFor="let p of data.TEI.text.body.div.p; let i = index;">
         |<u><b>P{{i+1}}</b> {{p['xml:id']}}</u>|<br />
