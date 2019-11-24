@@ -7,7 +7,7 @@ import * as THREE from 'three';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  @ViewChild('rendererContainer') rendererContainer: ElementRef;
+  @ViewChild('rendererContainer', { static: false }) rendererContainer: ElementRef;
   title = 'BigBernTheory';
   renderer = new THREE.WebGLRenderer();
     scene = null;
